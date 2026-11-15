@@ -56,7 +56,7 @@ func (m *MovieHandler) writeError(
 }
 
 func (m *MovieHandler) CreateMovieHandler(w http.ResponseWriter, r *http.Request) {
-	var createMovieDTO dto.CreateMovieDTO
+	var createMovieDTO dto.MovieDTO
 	if err := json.NewDecoder(r.Body).Decode(&createMovieDTO); err != nil {
 		m.writeError(w, err, http.StatusBadRequest)
 		return
@@ -104,7 +104,7 @@ func (m *MovieHandler) GetAllMoviesHandler(w http.ResponseWriter, r *http.Reques
 }
 
 func (m *MovieHandler) UpdateMovieHandler(w http.ResponseWriter, r *http.Request) {
-	var updateMovieDTO dto.UpdateMovieDTO
+	var updateMovieDTO dto.MovieDTO
 	idStr := mux.Vars(r)["id"]
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
