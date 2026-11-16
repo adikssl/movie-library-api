@@ -133,7 +133,7 @@ func (m *MovieHandler) UpdateMovieHandler(w http.ResponseWriter, r *http.Request
 	json.NewEncoder(w).Encode(movie)
 }
 
-func (m *MovieHandler) DeleteMovie(w http.ResponseWriter, r *http.Request) {
+func (m *MovieHandler) DeleteMovieHandler(w http.ResponseWriter, r *http.Request) {
 	idStr := mux.Vars(r)["id"]
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
